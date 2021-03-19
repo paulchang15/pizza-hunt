@@ -6,9 +6,13 @@ const PizzaSchema = new Schema(
   {
     pizzaName: {
       type: String,
+      required: "You need to provide a pizza name!",
+      trim: true,
     },
     createdBy: {
       type: String,
+      required: "Who thought up this pizza?",
+      trim: true,
     },
     createdAt: {
       type: Date,
@@ -17,6 +21,8 @@ const PizzaSchema = new Schema(
     },
     size: {
       type: String,
+      required: true,
+      enum: ["Personal", "Small", "Medium", "Large", "Extra Large"],
       default: "Large",
     },
     toppings: [],
